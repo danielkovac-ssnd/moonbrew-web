@@ -247,7 +247,7 @@ export default function App() {
               className="group px-10 py-5 bg-white/5 backdrop-blur-xl rounded-2xl font-bold text-lg md:text-xl border border-white/10 transition-all flex items-center justify-center gap-2 hover:border-purple-500/30"
             >
               <BookOpen size={22} className="text-purple-400" />
-              <span>Explore the World</span>
+              <span>Learn More</span>
               <ChevronDown size={20} className="group-hover:translate-y-1 transition-transform text-gray-500" />
             </motion.a>
           </motion.div>
@@ -374,12 +374,13 @@ export default function App() {
                 <img 
                   src="/screenshots/preview.png"
                   alt="Gameplay Preview"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover z-[1]"
+                  onLoad={(e) => { e.target.nextElementSibling.style.display = 'none'; }}
                   onError={(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex'; }}
                 />
                 
                 {/* Placeholder (shown when no image) */}
-                <div className="absolute inset-0 flex-col items-center justify-center z-10 hidden" style={{ display: 'flex' }}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center z-0">
                   <Flame className="text-purple-500/50 mb-4" size={48} />
                   <span className="text-gray-500 tracking-[0.4em] uppercase text-xs font-medium">Gameplay Preview</span>
                   <span className="text-purple-400/50 text-[10px] mt-2 tracking-wider">Coming Soon</span>
